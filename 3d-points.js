@@ -30,14 +30,14 @@
     // todo space to pause
 
     $.get('data.json', function(data) {
-        var s = 30;
+        var s = 8;
         var coordinate = Phoria.Entity.create({
             points: [{x: 0,y: 0, z: 0},
-                     {x: s, y: 0, z: 0},
+                     {x: s, y: 0, z: s},
                      {x: 0, y: s, z: 0},
                      {x: 0, y: 0, z: s}
                     ],
-            edges: [{a:0, b: 1}, {a: 0, b: 2}, {a: 0, b: 3}],
+            edges: [{a:0, b: 1}],
             style: {
                 linewidth: 10,
                 drawmode: 'wireframe'
@@ -57,59 +57,20 @@
         scene.modelView();
         renderer.render(scene);
 
-        // todo: ji suan cov ju zeng
-
         var angle1 = 0; // 绕 Z 轴转了 angle1
         var angle2 = 0;
         var step = 2;
         var fnAnimate = function() {
 
-            coordinate.rotateZ(step * Phoria.RADIANS);
-            // p.rotateZ(step * Phoria.RADIANS);
-            angle1 += step;
-            if (angle1 > 360) {
-                angle1 -= 360;
-                coordinate.rotateX(step * Phoria.RADIANS);
-                // p.rotateX(step * Phoria.RADIANS);
-            }
-
-            // coordinate.rotateZ(0.5 * Phoria.RADIANS);
-            // var positions = data.map(function(p) {
-            //     var x = p.x,
-            //         y = p.y,
-            //         z = p.z;
-
-            //     var r = Math.sqrt(x*x + y*y);
-            //     // vec: (x, y) and (1, 0)
-            //     var theta = Math.acos(x / r) - angle1;
-            //     x = Math.cos(theta) * r;
-            //     y = Math.sin(theta) * r;
-
-            //     return [p.x, p.y, p.z];
-            //     return [x, y, z];
-            // });
-
-            // cubes.forEach(function(c, i) {
-            //     c.translate(positions[i]);
-            // });
+            coordinate.rotateY(step * Phoria.RADIANS);
 
             scene.modelView();
             renderer.render(scene);
-
-
-            // cubes.forEach(function(c, i) {
-            //     var p = positions[i];
-            //     c.translate([-p[0], -p[1], -p[2]]);
-            // });
 
             requestAnimationFrame(fnAnimate);
         };
 
         fnAnimate();
     });
-
-    setTimeout(function() {
-        window.location.reload();
-    }, 20*1000);
 
 })();

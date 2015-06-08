@@ -1,5 +1,5 @@
 var fs = require('fs');
-var numbers = 30;
+var numbers = 100;
 var array = [];
 var gen = function(min, max) {
     return min + Math.random() * (max - min);

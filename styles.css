@@ -11,3 +11,20 @@ h1 {
     padding-bottom: .5em;
     color: #777;
 }
+
+#scene {
+    margin-bottom: 4em;
+}
+
+#cov {
+    float: right;
+    /* position: fixed; */
+    /* bottom: 20px; */
+    /* right: 20px; */
+    font-size: 48px;
+    color: #999;
+}
+
+th, td {
+    width: 110px;
+}

@@ -8,14 +8,34 @@
     <script src="lib/phoria.js/scripts/phoria-renderer.js"></script>
     <script src='lib/phoria.js/scripts/dat.gui.min.js'></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="lib/numeric-1.2.6.min.js"></script>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <h1>PCA Visualization</h1>
     <canvas id="scene"></canvas>
+    <script src="scene.js"></script>
 
-    <!-- <script src="scene.js"></script> -->
+    <!-- <canvas id="points"></canvas> -->
+    <!-- <script src="3d-points.js"></script> -->
 
-    <canvas id="points"></canvas>
-    <script src="main.js"></script>
+    <canvas id="2d-points"></canvas>
+    <table id="cov">
+        <tr>
+            <th></th>
+            <th>X</th>
+            <th>Y</th>
+        </tr>
+        <tr>
+            <td>X</td>
+            <td id="covxx"></td>
+            <td id="covxy"></td>
+        </tr>
+        <tr>
+            <td>Y</td>
+            <td id="covyx"></td>
+            <td id="covyy"></td>
+        </tr>
+    </table>
+    <script src="2d-points.js"></script>
 </body>
