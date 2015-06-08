@@ -14,7 +14,5 @@
     "tests"
   ],
   "dependencies": {
-    "phoria": "https://github.com/kevinroast/phoria.js",
-    "phoria.js": "https://github.com/kevinroast/phoria.js.git#~0.9.16"
   }
 }
