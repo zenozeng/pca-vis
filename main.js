@@ -39,7 +39,7 @@
                     ],
             edges: [{a:0, b: 1}, {a: 0, b: 2}, {a: 0, b: 3}],
             style: {
-                linewidth: 3,
+                linewidth: 10,
                 drawmode: 'wireframe'
             }
         });
@@ -61,14 +61,17 @@
 
         var angle1 = 0; // 绕 Z 轴转了 angle1
         var angle2 = 0;
-        var step = 0.1;
+        var step = 2;
         var fnAnimate = function() {
-            angle1 += step * Math.PI;
-            if (angle1 > Math.PI * 2) {
-                angle1 = 0;
-                angle1 += step * Math.PI;
-            }
 
+            coordinate.rotateZ(step * Phoria.RADIANS);
+            // p.rotateZ(step * Phoria.RADIANS);
+            angle1 += step;
+            if (angle1 > 360) {
+                angle1 -= 360;
+                coordinate.rotateX(step * Phoria.RADIANS);
+                // p.rotateX(step * Phoria.RADIANS);
+            }
 
             // coordinate.rotateZ(0.5 * Phoria.RADIANS);
             // var positions = data.map(function(p) {
@@ -90,14 +93,9 @@
             //     c.translate(positions[i]);
             // });
 
-            coordinate.rotateY(angle1);
-            coordinate.rotateX(angle2);
-
             scene.modelView();
             renderer.render(scene);
 
-            coordinate.rotateY(-angle1);
-            coordinate.rotateX(-angle2);
 
             // cubes.forEach(function(c, i) {
             //     var p = positions[i];
@@ -112,6 +110,6 @@
 
     setTimeout(function() {
         window.location.reload();
-    }, 5000);
+    }, 20*1000);
 
 })();
